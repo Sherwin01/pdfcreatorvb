@@ -2,6 +2,7 @@
 Imports iTextSharp.text
 Imports iTextSharp.text.pdf
 Imports Newtonsoft.Json
+Imports iTextSharp.text.pdf.draw
 Public Class Form1
     Dim jsonreader As String = File.ReadAllText("test.json")
     Dim jsoninfo As info = JsonConvert.DeserializeObject(Of info)(jsonreader)
@@ -30,25 +31,35 @@ Public Class Form1
         email.Font.Size = 12
         createpdf.Add(email)
 
-        Dim title As Paragraph = New Paragraph("Objectives" & vbLf)
-        title.Font.Size = 24
-        createpdf.Add(title)
+        Dim objtitle As Paragraph = New Paragraph("Objectives" & vbLf & vbLf)
+        objtitle.Font.Size = 24
+        createpdf.Add(objtitle)
 
-        Dim obj As Paragraph = New Paragraph(jsoninfo.Objective & vbLf & vbLf & vbLf & vbLf & vbLf & vbLf)
+        Dim line As LineSeparator = New LineSeparator(4.0F, 100.0F, BaseColor.CYAN, Element.ALIGN_CENTER, 1)
+        createpdf.Add(line)
+
+
+        Dim obj As Paragraph = New Paragraph(jsoninfo.Objective & vbLf & vbLf & vbLf & vbLf & vbLf)
         obj.Font.Size = 14
         createpdf.Add(obj)
 
-        Dim edutitle As Paragraph = New Paragraph("Educational Background" & vbLf)
+        Dim edutitle As Paragraph = New Paragraph("Educational Background" & vbLf & vbLf)
         edutitle.Font.Size = 24
         createpdf.Add(edutitle)
 
-        Dim edu As Paragraph = New Paragraph(jsoninfo.Education & vbLf & vbLf & vbLf & vbLf & vbLf & vbLf & vbLf & vbLf)
+        Dim eduline As LineSeparator = New LineSeparator(4.0F, 100.0F, BaseColor.CYAN, Element.ALIGN_CENTER, 1)
+        createpdf.Add(eduline)
+
+        Dim edu As Paragraph = New Paragraph(jsoninfo.Education & vbLf & vbLf & vbLf & vbLf & vbLf & vbLf & vbLf)
         edu.Font.Size = 14
         createpdf.Add(edu)
 
-        Dim skilltitle As Paragraph = New Paragraph("Skills" & vbLf)
+        Dim skilltitle As Paragraph = New Paragraph("Skills" & vbLf & vbLf)
         skilltitle.Font.Size = 24
         createpdf.Add(skilltitle)
+
+        Dim skillsline As LineSeparator = New LineSeparator(4.0F, 100.0F, BaseColor.CYAN, Element.ALIGN_CENTER, 1)
+        createpdf.Add(skillsline)
 
         Dim skills As Paragraph = New Paragraph(jsoninfo.Skills)
         skills.Font.Size = 14
