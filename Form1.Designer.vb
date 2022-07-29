@@ -22,10 +22,31 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.generatebtn = New System.Windows.Forms.Button()
+        Me.SuspendLayout()
+        '
+        'generatebtn
+        '
+        Me.generatebtn.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.generatebtn.Location = New System.Drawing.Point(312, 149)
+        Me.generatebtn.Name = "generatebtn"
+        Me.generatebtn.Size = New System.Drawing.Size(154, 114)
+        Me.generatebtn.TabIndex = 0
+        Me.generatebtn.Text = "Generate"
+        Me.generatebtn.UseVisualStyleBackColor = False
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Text = "Form1"
+        Me.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.ClientSize = New System.Drawing.Size(826, 441)
+        Me.Controls.Add(Me.generatebtn)
+        Me.Name = "Form1"
+        Me.Text = "ResuneGenerator"
+        Me.ResumeLayout(False)
+
     End Sub
 
+    Friend WithEvents generatebtn As Button
 End Class
